@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20160503002434) do
   enable_extension "plpgsql"
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "web_link"
-    t.string   "github_link"
+    t.string   "name",        null: false
+    t.string   "description", null: false
+    t.string   "web_link",    null: false
+    t.string   "github_link", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
