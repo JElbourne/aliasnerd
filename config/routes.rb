@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :projects
+  devise_for :users
+  resources :projects, except: :show
   
-  root 'projects#index'
+  root to: 'projects#index'
 
 end
