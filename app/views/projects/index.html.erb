@@ -7,17 +7,14 @@
             <h3><%= project.name %></h3>
             <p><%= project.description %></p>
             <div class="row">
-              <div class="col-sm-3">
-                <%= link_to "Website", url_for(project.web_link), class: "btn btn-sm btn-default" %>
+              <div class="col-sm-4">
+                <%= link_to "Website", url_for(project.web_link), class: "btn btn-block btn-default" %>
               </div>
-              <div class="col-sm-3">
-                <%= link_to "Github", project.github_link %>
+              <div class="col-sm-4">
+                <%= link_to "Edit", edit_project_path(project) if user_signed_in? %>
               </div>
-              <div class="col-sm-3">
-                <%= link_to "Show", project_path(project), class: "btn btn-sm btn-default" %>
-              </div>
-              <div class="col-sm-3">
-                <%= link_to "Edit", edit_project_path(project) %>
+              <div class="col-sm-4">
+                <%= link_to "Github", project.github_link, class: "btn btn-block btn-default" %>
               </div>
             </div>
           </div>
@@ -25,4 +22,4 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'New Project', new_project_path if user_signed_in? %>

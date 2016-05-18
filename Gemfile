@@ -46,17 +46,37 @@ gem 'local_time', '>= 1.0.3'
 gem 'stripe', '~> 1.40'
 gem 'stripe_event', '~> 1.5'
 
+group :test do
+    gem "capybara"
+    gem 'capybara_minitest_spec', '~> 1.0', '>= 1.0.5'
+    gem "connection_pool"
+    gem "launchy"
+    gem "minitest-reporters"
+    gem "mocha"
+    gem "poltergeist"
+    gem "shoulda-context"
+    gem "shoulda-matchers", ">= 3.0.1"
+    gem "test_after_commit"
+    gem "simplecov", require: false
+end
+
 group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'better_errors', '~> 2.1', '>= 2.1.1'
-  gem 'binding_of_caller', '~> 0.7.2'
-  gem 'guard', '~> 2.13'
-  gem 'guard-minitest', '~> 2.4', '>= 2.4.4'
-  gem 'minitest-colorize', git: 'https://github.com/ysbaddaden/minitest-colorize'
-  gem 'spring'
-end
+    gem 'better_errors', '~> 2.1', '>= 2.1.1'
+    gem 'binding_of_caller', '~> 0.7.2'
+    gem 'annotate', '~> 2.7'
+    # Access an IRB console on exception pages or by using <%= console %> in views
+    gem 'web-console', '~> 2.0'
 
+    # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+    gem 'spring'
+    gem 'guard', '~> 2.13'
+    gem 'guard-minitest', '~> 2.4', '>= 2.4.4'
+    gem "rb-fsevent", :require => false
+    gem "terminal-notifier-guard", :require => false
+    gem 'minitest-colorize', git: 'https://github.com/ysbaddaden/minitest-colorize'
+end

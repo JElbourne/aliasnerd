@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: My First Project
   description: MyString
   web_link: MyString
   github_link: MyString
+  slug: my-first-project
 
 two:
-  name: MyString
+  name: My Second Project
   description: MyString
   web_link: MyString
   github_link: MyString
+  slug: my-second-project

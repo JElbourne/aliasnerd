@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
+    @user = users(:subscribed)
     @project = projects(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -21,12 +23,15 @@ class ProjectsControllerTest < ActionController::TestCase
       post :create, project: { description: @project.description, github_link: @project.github_link, name: @project.name, web_link: @project.web_link }
     end
 
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to projects_path
   end
 
-  test "should show project" do
-    get :show, id: @project
-    assert_response :success
+  test "shouldn't create project if not valid, renders :new action" do
+    assert_no_difference('Project.count') do
+      ## Missing Description, should fail
+      post :create, project: { github_link: @project.github_link, name: @project.name, web_link: @project.web_link }
+    end
+    assert_template :new
   end
 
   test "should get edit" do
@@ -36,7 +41,13 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should update project" do
     patch :update, id: @project, project: { description: @project.description, github_link: @project.github_link, name: @project.name, web_link: @project.web_link }
-    assert_redirected_to project_path(assigns(:project))
+    assert_redirected_to projects_path
+  end
+
+  test "shouldn't update project if not valid, renders :edit action" do
+    ## Invalid Name will not allow update
+    patch :update, id: @project, project: {name: "?$@@$#"}
+    assert_template :edit
   end
 
   test "should destroy project" do

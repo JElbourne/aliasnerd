@@ -5,8 +5,10 @@ class CreateProjects < ActiveRecord::Migration
       t.string :description, null: false
       t.string :web_link, null: false
       t.string :github_link, null: false
+      t.string :slug, null: false
 
       t.timestamps null: false
     end
+    add_index :projects, :slug, unique: true
   end
 end

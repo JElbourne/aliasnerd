@@ -4,3 +4,5 @@
 
 <%= link_to 'Show', @project %> |
 <%= link_to 'Back', projects_path %>
+
+<%= link_to "Delete Project", @project, method: :delete, data: {:confirm => 'Are you sure?'}, class: "btn btn-danger btn-sm" %>
