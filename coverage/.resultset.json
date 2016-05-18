@@ -31,6 +31,109 @@
         null,
         null
       ],
+      "/media/sf_Development/Code/Aliasnerd/app/models/video.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/media/sf_Development/Code/Aliasnerd/app/controllers/videos_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        2,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        5,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null
+      ],
+      "/media/sf_Development/Code/Aliasnerd/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/media/sf_Development/Code/Aliasnerd/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/media/sf_Development/Code/Aliasnerd/app/helpers/projects_helper.rb": [
+        1,
+        null
+      ],
+      "/media/sf_Development/Code/Aliasnerd/app/helpers/videos_helper.rb": [
+        1,
+        null
+      ],
       "/media/sf_Development/Code/Aliasnerd/app/controllers/projects_controller.rb": [
         1,
         1,
@@ -97,32 +200,8 @@
         4,
         null,
         null
-      ],
-      "/media/sf_Development/Code/Aliasnerd/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        1,
-        2,
-        2,
-        null,
-        null
-      ],
-      "/media/sf_Development/Code/Aliasnerd/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/media/sf_Development/Code/Aliasnerd/app/helpers/projects_helper.rb": [
-        1,
-        null
       ]
     },
-    "timestamp": 1463446186
+    "timestamp": 1463592882
   }
 }

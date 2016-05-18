@@ -1,0 +1,6 @@
+
+one:
+  name: VideoOne
+  description: This is video one
+  video_source_id: asdf23sd
+  slug: videoone
