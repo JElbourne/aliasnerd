@@ -9,4 +9,21 @@ class User < ActiveRecord::Base
   
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def subscribed?
+    stripe_subscription_id?
+  end
+
+  def remove_subscription
+    update(stripe_subscription_id: nil)
+  end
+
+  def customer
+    if stripe_id?
+      Stripe::Customer.retrieve(stripe_id)
+    else
+      Stripe::Customer.create(email: email)
+    end
+  end
+
 end

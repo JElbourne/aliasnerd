@@ -9,3 +9,15 @@ subscribed:
   name: Subscribed
   email: subscribed@test.com
   slug: subscribed
+  stripe_id: "test"
+  stripe_subscription_id: "test_sub"
+  card_last4: "4444"
+  card_exp_month: 12
+  card_exp_year: 22
+  card_type: "visa" 
+
+
+unsubscribed: 
+  name: UnSubscribed
+  email: unsubscribed@test.com
+  slug: unsubscribed

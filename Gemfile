@@ -58,6 +58,7 @@ group :test do
     gem "shoulda-matchers", ">= 3.0.1"
     gem "test_after_commit"
     gem "simplecov", require: false
+    gem 'stripe-ruby-mock', '~> 2.2.4', :require => 'stripe_mock'
 end
 
 group :development, :test do
