@@ -49,11 +49,11 @@ class SubscriptionsControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  #test "should not get edit, if User is not subscribed, redirect to new" do
-   # sign_in users(:unsubscribed)
-    #get :edit
-   # assert_template "new"
-  #end
+  test "should not get edit, if User is not subscribed, redirect to new" do
+    sign_in users(:unsubscribed)
+    get :edit
+    assert_redirected_to new_subscription_path
+  end
   
   test "should destroy subscription" do
     stripe_helper.create_plan(id: 'monthly', amount: 10)

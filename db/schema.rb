@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520182651) do
+ActiveRecord::Schema.define(version: 20160523155344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "charges", force: :cascade do |t|
+    t.integer  "user_id",          null: false
+    t.string   "stripe_charge_id", null: false
+    t.integer  "amount_in_cents",  null: false
+    t.string   "card_last4",       null: false
+    t.integer  "card_exp_month",   null: false
+    t.integer  "card_exp_year",    null: false
+    t.string   "card_type",        null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "charges", ["stripe_charge_id"], name: "index_charges_on_stripe_charge_id", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
