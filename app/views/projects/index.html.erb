@@ -11,7 +11,7 @@
                 <%= link_to "Website", url_for(project.web_link), class: "btn btn-block btn-default" %>
               </div>
               <div class="col-sm-4">
-                <%= link_to "Edit", edit_project_path(project) if user_signed_in? %>
+                <%= link_to "Edit", edit_project_path(project) if current_user_admin? %>
               </div>
               <div class="col-sm-4">
                 <%= link_to "Github", project.github_link, class: "btn btn-block btn-default" %>

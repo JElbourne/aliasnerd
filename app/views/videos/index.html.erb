@@ -1,31 +1,24 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Listing Videos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Video source</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @videos.each do |video| %>
-      <tr>
-        <td><%= video.name %></td>
-        <td><%= video.description %></td>
-        <td><%= video.video_source_id %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @videos.each do |video| %>
+  <div class="media">
+    <div class="media-left">
+      <%= link_to video_path(video) do %>
+        <%= image_tag("https://i.ytimg.com/vi/#{video.video_source_id}/hqdefault.jpg", class: "media-object", style: "width: 120px;")%>
+      <% end %>
+    </div>
+    <div class="media-body">
+      <%= link_to video_path(video), class: "inherit_style" do %>
+      <h4 class="media-heading"><%= video.name.titleize %></h4>
+      <%= video.description %>
+      <% end %>
+      <div>
+        <%= link_to "Edit Video", edit_video_path(video) if current_user_admin? %>
+      </div>
+    </div>
+  </div> 
+  <hr />
+<% end %>
 <br>
 
 <%= link_to 'New Video', new_video_path %>

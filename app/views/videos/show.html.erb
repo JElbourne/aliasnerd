@@ -1,18 +1,10 @@
-<p id="notice"><%= notice %></p>
+<iframe width="853" height="480" src=<%= "https://www.youtube.com/embed/#{@video.video_source_id}?rel=0&amp;showinfo=0"%> frameborder="0" allowfullscreen></iframe>
 
-<p>
-  <strong>Name:</strong>
-  <%= @video.name %>
-</p>
+<h1><%= @video.name.titleize %></h1>
 
 <p>
   <strong>Description:</strong>
   <%= @video.description %>
-</p>
-
-<p>
-  <strong>Video source:</strong>
-  <%= @video.video_source_id %>
 </p>
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
