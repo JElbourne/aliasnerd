@@ -14,10 +14,16 @@ subscribed:
   card_last4: "4444"
   card_exp_month: 12
   card_exp_year: 22
-  card_type: "visa" 
+  card_type: "visa"
 
 
 unsubscribed: 
   name: UnSubscribed
   email: unsubscribed@test.com
   slug: unsubscribed
+
+admin: 
+  name: admin
+  email: admin@test.com
+  slug: admin
+  admin: true

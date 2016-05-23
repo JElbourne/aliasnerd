@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :admin_required, except: [:index]
   before_action :set_project, only: [:edit, :update, :destroy]
 
   # GET /projects
