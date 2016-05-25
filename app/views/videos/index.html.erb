@@ -1,24 +1,9 @@
-
-<h1>Listing Videos</h1>
-<% @videos.each do |video| %>
-  <div class="media">
-    <div class="media-left">
-      <%= link_to video_path(video) do %>
-        <%= image_tag("https://i.ytimg.com/vi/#{video.video_source_id}/hqdefault.jpg", class: "media-object", style: "width: 120px;")%>
-      <% end %>
-    </div>
-    <div class="media-body">
-      <%= link_to video_path(video), class: "inherit_style" do %>
-      <h4 class="media-heading"><%= video.name.titleize %></h4>
-      <%= video.description %>
-      <% end %>
-      <div>
-        <%= link_to "Edit Video", edit_video_path(video) if current_user_admin? %>
-      </div>
-    </div>
-  </div> 
-  <hr />
+<% content_for :page_title do %>
+  <%= @project.present? ? "#{@project.name.titleize} Videos" : "Screencast Videos" %>
 <% end %>
+
+<%= render(partial: 'video_panel', collection: @videos, as: :video) || 'No videos at this time.' %>
+
 <br>
 
 <%= link_to 'New Video', new_video_path %>

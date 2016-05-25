@@ -11,4 +11,6 @@ class Video < ActiveRecord::Base
     message: "The name has invalid characters, please supply a different name."
   }
 
+  belongs_to :project
+
 end

@@ -4,7 +4,12 @@ class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
 
   def index
-    @videos = Video.all
+    @videos = if params[:project]
+                Video.where(project_id: params[:project])
+              else
+                Video.all
+              end
+    @project = params.has_key?(:project) ? Project.find(params[:project]) : nil
   end
 
   def show
@@ -53,6 +58,6 @@ class VideosController < ApplicationController
     end
 
     def video_params
-      params.require(:video).permit(:name, :description, :video_source_id)
+      params.require(:video).permit(:name, :description, :video_source_id, :project_id)
     end
 end

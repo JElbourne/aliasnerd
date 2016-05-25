@@ -15,7 +15,10 @@
 @import "bootstrap";
 
 .container {
-  width: 853px;
+  width: 883px;
+}
+.page-title {
+  text-align: center;
 }
 .alert-error {
   @extend .alert-danger;

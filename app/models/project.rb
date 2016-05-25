@@ -11,4 +11,6 @@ class Project < ActiveRecord::Base
     with: /\A[^0-9`!@#\$%\^&*+_=]+\z/,
     message: "The name has invalid characters, please supply a different name."
   }
+
+  has_many :videos
 end

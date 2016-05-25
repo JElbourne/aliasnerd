@@ -89,10 +89,12 @@ ActiveRecord::Schema.define(version: 20160523155344) do
     t.string   "description",     null: false
     t.string   "video_source_id", null: false
     t.string   "slug",            null: false
+    t.integer  "project_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_index "videos", ["project_id"], name: "index_videos_on_project_id", using: :btree
   add_index "videos", ["slug"], name: "index_videos_on_slug", unique: true, using: :btree
 
 end

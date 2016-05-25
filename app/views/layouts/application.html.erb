@@ -9,14 +9,18 @@
 </head>
 <body>
   <%= render partial: "shared/navbar" %>
-  <% flash.each do |name, msg| -%>
-    <%= content_tag :div, msg, class: "alert alert-"+name %>
-  <% end -%>
-
   <div class="container">
-    <span class="page-title">
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-"+name %>
+    <% end -%>
+  </div>
+  <div>
+    <%= yield :full_width %>
+  </div>
+  <div class="container">
+    <h1 class="page-title">
       <%= yield :page_title %>
-    </span>
+    </h1>
     <%= yield %>
   </div>
 </body>
