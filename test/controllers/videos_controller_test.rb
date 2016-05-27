@@ -12,6 +12,12 @@ class VideosControllerTest < ActionController::TestCase
     assert_not_nil assigns(:videos)
   end
 
+  test "should get index with a project's id" do
+    get :index, project: projects(:one).id
+    assert_response :success
+    assert_not_nil assigns(:videos)
+  end
+
   test "should get show" do
     get :show, id: @video
     assert_response :success

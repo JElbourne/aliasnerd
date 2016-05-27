@@ -1,0 +1,44 @@
+<% content_for :page_title do %>
+  Ruby on Rails by Coding Actual Projects
+<% end %>
+
+<iframe width="853" height="480" src="https://www.youtube.com/embed/DXGU044deAY?rel=0&amp;autoplay=1;controls=0;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+<%= render partial: "shared/subs_panel" %>
+
+<hr />
+<div class="row">
+  <h2 class="text-center">Latest Projects</h2>
+  <%= render partial: "shared/project_panel", collection: @projects, as: "project" %>
+</div>
+<div class="text-center">
+  <%= link_to "View More Projects", projects_path, class: "btn btn-sm btn-default" %>
+</div>
+<hr />
+<div class="row">
+  <div class="col-sm-6">
+    <h2>About Alias::Nerd</h2>
+    <p></p>
+    <h2>My Setup</h2>
+    <h3>Laptop</h3>
+    <ul>
+      <li>MacBook Pro</li> 
+    </ul>
+    <h3>Desktop</h3>
+    <ul>
+      <li>Windows 10 OS</li> 
+    </ul>
+  </div>
+  <div class="col-sm-6">
+    <h2>Why Subscribe?</h2>
+    <p></p>
+    <ul>
+      <li></li> 
+    </ul>
+    <h2>Why Donate?</h2>
+    <p></p>
+    <ul>
+      <li></li> 
+    </ul>
+  </div>
+</div>

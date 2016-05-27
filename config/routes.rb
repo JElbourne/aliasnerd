@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resource :subscription
   resource :card
   
-  root to: 'projects#index'
+  root to: 'welcome#index'
 
 end
