@@ -3,7 +3,7 @@ require 'test_helper'
 class UserFlowTest < ActionDispatch::IntegrationTest
   test "User Register, Success" do
     visit(root_path)
-    click_link('Sign Up')
+    click_button('Sign Up')
 
     fill_in "Name", with: "Fred"
     fill_in "Email", with: "fred@test.com"
