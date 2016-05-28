@@ -1,6 +1,10 @@
 <div class="pull-left">
-  <%= link_to "/", class: "btn btn-primary btn-sm", style: "margin-right: 5px;" do %>
-    Subscribe <span class="badge">$9.00</span>
+  <% if current_user_subscribed? %>
+    <%= link_to "Subscribed !", edit_subscription_path, class: "btn btn-success btn-sm" %>
+  <% else %>
+    <%= link_to new_subscription_path, class: "btn btn-primary btn-sm", style: "margin-right: 5px;" do %>
+      Subscribe <span class="badge">$9.00</span>
+    <% end %>
   <% end %>
 <%= link_to "Donate", "/", class: "btn btn-primary btn-sm" %>
 <%= link_to "/", class: "btn btn-primary btn-sm" do %>
@@ -10,7 +14,7 @@
 </div>
 
 <div class="pull-right">
-  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 10,0000
+  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= User.subs_count %>
   <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 1,000
 </div>
 

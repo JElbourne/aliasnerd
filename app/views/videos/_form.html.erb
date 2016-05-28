@@ -15,5 +15,5 @@
     <%= f.text_field :description %>
     <%= f.text_field :video_source_id %>
     <%= f.collection_select :project_id, Project.all, :id, :name, prompt: "None" %>
-    <%= f.submit %>
+    <%= f.submit "Save Video", class: "btn btn-primary"%>
 <% end %>

@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.subs_count
+    User.where.not(stripe_subscription_id: nil).count
+  end
+
 end
