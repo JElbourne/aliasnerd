@@ -1,0 +1,18 @@
+<% content_for :page_title do %>
+  Search Results
+<% end %>
+<% if @projects.present? %>
+  <h3>Projects</h3>
+  <div class="row">
+  <%= render partial: "shared/project_panel", collection: @projects, as: :project %>
+  </div>
+<% end %>
+
+<% if @videos.present? %>
+  <h3>Videos</h3>
+  <%= render partial: 'shared/video_panel', collection: @videos, as: :video %>
+<% end %>
+
+<% if !@projects.present? && !@videos.present? %>
+  <h3>Nothing was found for your search.</h3>
+<% end %>

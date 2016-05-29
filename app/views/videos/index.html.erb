@@ -2,4 +2,4 @@
   <%= @project.present? ? "#{@project.name.titleize} Videos" : "Screencast Videos" %>
 <% end %>
 
-<%= render(partial: 'video_panel', collection: @videos, as: :video) || 'No videos at this time.' %>
+<%= render(partial: 'shared/video_panel', collection: @videos, as: :video) || 'No videos at this time.' %>

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :videos
   resource :subscription
   resource :card
-  
+ 
+  get "/search", to: "search#index", as: "search" 
+  patch "/liked", to: "users#liked", as: "liked"
   root to: 'welcome#index'
 
 end
