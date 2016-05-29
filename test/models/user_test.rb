@@ -15,4 +15,5 @@ class UserTest < ActiveSupport::TestCase
     user = User.create(name: "joe", password: "password")
     assert_not user.valid?
   end
+
 end

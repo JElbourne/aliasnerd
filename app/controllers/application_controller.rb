@@ -26,4 +26,5 @@ class ApplicationController < ActionController::Base
   def admin_required
     redirect_to :back, notice: "You can not view this page." unless current_user_admin?
   end
+
 end

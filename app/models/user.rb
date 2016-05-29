@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
     update(stripe_subscription_id: nil)
   end
 
+  def add_like
+    update(liked: true)
+  end
+
   def customer
     if stripe_id?
       Stripe::Customer.retrieve(stripe_id)
@@ -28,8 +32,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.subs_count
-    User.where.not(stripe_subscription_id: nil).count
+  def self.get_subs_count
+    where.not(stripe_subscription_id: nil).count
   end
 
+  def self.get_liked_count
+    where(liked: true).count
+  end
 end
