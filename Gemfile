@@ -46,6 +46,9 @@ gem 'local_time', '>= 1.0.3'
 gem 'stripe', '~> 1.40'
 gem 'stripe_event', '~> 1.5'
 
+# Use for Voting on Models
+gem 'acts_as_votable', '~> 0.10.0'
+
 group :test do
     gem "capybara"
     gem 'capybara_minitest_spec', '~> 1.0', '>= 1.0.5'
