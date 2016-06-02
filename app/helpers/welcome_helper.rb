@@ -1,12 +1,12 @@
 module WelcomeHelper
   def liked_button
-    if current_user.liked 
+    if Voter.has_voted?(@config_nerd, cookies.signed[:voting_id]) 
       content_tag(:button, class: "btn btn-success btn-sm") do
         content_tag(:span, nil, class: "glyphicon glyphicon-heart") +
         " I liked This"
       end
     else
-      link_to liked_path, method: :patch, class: "btn btn-primary btn-sm" do
+      link_to vote_up_path, method: :post, class: "btn btn-primary btn-sm" do
         content_tag(:span, nil, class: "glyphicon glyphicon-heart") +
         " Like This"
       end

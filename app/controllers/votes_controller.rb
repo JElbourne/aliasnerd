@@ -1,5 +1,4 @@
 class VotesController < ApplicationController
-  before_action :get_config_nerd
 
   def vote_up
     if cookies.has_key?(:voting_id)
@@ -13,9 +12,5 @@ class VotesController < ApplicationController
     redirect_to :back
   end
 
-  private
 
-  def get_config_nerd
-    @config_nerd = ConfigNerd.first_or_create
-  end
 end

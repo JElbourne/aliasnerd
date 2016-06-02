@@ -2,8 +2,3 @@
 
 one:
   voting_id: MyString
-  user_id: 1
-
-two:
-  voting_id: MyString
-  user_id: 1

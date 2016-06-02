@@ -3,16 +3,16 @@
     <%= link_to "Subscribed !", edit_subscription_path, class: "btn btn-success btn-sm" %>
   <% else %>
     <%= link_to new_subscription_path, class: "btn btn-primary btn-sm", style: "margin-right: 5px;" do %>
-      Subscribe <span class="badge">$9.00</span>
+      Sponsor <span class="badge">$9.00</span>
     <% end %>
   <% end %>
 
-  <%= liked_button if user_signed_in? %>
+  <%= liked_button %>
 </div>
 
 <div class="pull-right">
   <span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= @subs_count %>
-  <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= @liked_count %>
+<span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <%= @config_nerd.get_liked_count %>
 
 </div>
 

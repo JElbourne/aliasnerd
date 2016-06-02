@@ -11,16 +11,6 @@ class WelcomeControllerTest < ActionController::TestCase
     assert_not_nil assigns(:projects)
   end
 
-  test "should get index, user liked" do
-    @user = users(:subscribed)
-    @user.update(liked: true)
-    sign_in @user
-
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:projects)
-  end
-  
   test "should get index, user not liked" do
     @user = users(:subscribed)
     sign_in @user

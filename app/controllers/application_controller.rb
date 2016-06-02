@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :get_config_nerd
   
   helper_method :current_user_subscribed?
   helper_method :current_user_admin?
@@ -27,4 +28,7 @@ class ApplicationController < ActionController::Base
     redirect_to :back, notice: "You can not view this page." unless current_user_admin?
   end
 
+  def get_config_nerd
+    @config_nerd = ConfigNerd.first_or_create
+  end
 end
