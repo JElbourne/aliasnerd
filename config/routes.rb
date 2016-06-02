@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resource :card
  
   get "/search", to: "search#index", as: "search" 
-  patch "/liked", to: "users#liked", as: "liked"
+  post "/liked", to: "votes#vote_up", as: "vote_up"
   root to: 'welcome#index'
 
 end
