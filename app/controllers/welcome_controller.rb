@@ -2,9 +2,14 @@ class WelcomeController < ApplicationController
   def index
     @projects = Project.limit(3)
     @subs_count = User.get_subs_count
-    @current_user_liked = false
-    if current_user
-      @current_user_liked = true if current_user.liked
-    end
+    @video_home_id = if @config_nerd.live
+                       @config_nerd.live
+                     else
+                       if @config_nerd.video_temp_id
+                         @config_nerd.video_temp_id
+                       else
+                         @config_nerd.video_ad_id
+                       end
+                     end
   end
 end

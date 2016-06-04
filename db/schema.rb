@@ -31,9 +31,12 @@ ActiveRecord::Schema.define(version: 20160602175720) do
   add_index "charges", ["stripe_charge_id"], name: "index_charges_on_stripe_charge_id", unique: true, using: :btree
 
   create_table "config_nerds", force: :cascade do |t|
-    t.boolean  "live",       default: false, null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "video_ad_id"
+    t.string   "video_temp_id"
+    t.string   "video_stream_id"
+    t.boolean  "live",            default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -75,22 +78,21 @@ ActiveRecord::Schema.define(version: 20160602175720) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
     t.string   "stripe_id"
     t.string   "stripe_subscription_id"
     t.string   "card_last4"
     t.integer  "card_exp_month"
     t.integer  "card_exp_year"
     t.string   "card_type"
-    t.boolean  "liked",                  default: false, null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["liked"], name: "index_users_on_liked", using: :btree
   add_index "users", ["name"], name: "index_users_on_name", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", unique: true, using: :btree
+  add_index "users", ["stripe_subscription_id"], name: "index_users_on_stripe_subscription_id", using: :btree
 
   create_table "videos", force: :cascade do |t|
     t.string   "name",            null: false
