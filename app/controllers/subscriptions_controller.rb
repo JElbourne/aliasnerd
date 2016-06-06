@@ -30,7 +30,7 @@ class SubscriptionsController < ApplicationController
 
     current_user.update(options)
 
-    redirect_to root_path, notice: "Thank you for subscribing."
+    redirect_to root_url(host: (Rails.env.production? ? 'www.aliasnerd.com' : 'localhost:3000')), notice: "Thank you for subscribing."
   end
 
   def destroy
@@ -38,7 +38,7 @@ class SubscriptionsController < ApplicationController
     customer.subscriptions.retrieve(current_user.stripe_subscription_id).delete
     current_user.remove_subscription
 
-    redirect_to root_path, notice: "Your subscription has been cancelled"
+    redirect_to root_url(host: (Rails.env.production? ? 'www.aliasnerd.com' : 'localhost:3000')), notice: "Your subscription has been cancelled"
   end
 
   private
@@ -46,14 +46,14 @@ class SubscriptionsController < ApplicationController
   def redirect_for_new_action
     if !user_signed_in?
       session["user_return_to"] = new_subscription_path
-      redirect_to new_user_registration_path
+      redirect_to new_user_registration_url(host: (Rails.env.production? ? 'www.aliasnerd.com' : 'localhost:3000'))
     elsif !current_user.stripe_subscription_id.nil?
-      redirect_to edit_subscription_path
+      redirect_to edit_subscription_url(host: (Rails.env.production? ? 'www.aliasnerd.com' : 'localhost:3000'))
     end
   end
   
   def user_subscribed!
-    redirect_to new_subscription_path, alert: "You must be subscribed to use this application" unless current_user_subscribed?
+    redirect_to new_subscription_url(host: (Rails.env.production? ? 'www.aliasnerd.com' : 'localhost:3000')), alert: "You must be subscribed to use this application" unless current_user_subscribed?
   end
 
 end

@@ -23,13 +23,13 @@ class SubscriptionsControllerTest < ActionController::TestCase
   test "should not get new, instead redirect to register page, if User not logged in" do
     users(:unsubscribed)
     get :new
-    assert_redirected_to new_user_registration_path
+    assert_redirected_to new_user_registration_url(host: "test.host")
   end
   
   test "should redirect to :edit from :new, if User subscribed" do
     sign_in users(:subscribed)
     get :new
-    assert_redirected_to edit_subscription_path
+    assert_redirected_to edit_subscription_url(host: "test.host")
   end
   
   test "should create Subscription" do
@@ -52,7 +52,7 @@ class SubscriptionsControllerTest < ActionController::TestCase
   test "should not get edit, if User is not subscribed, redirect to new" do
     sign_in users(:unsubscribed)
     get :edit
-    assert_redirected_to new_subscription_path
+    assert_redirected_to new_subscription_url(host: "test.host")
   end
   
   test "should destroy subscription" do
