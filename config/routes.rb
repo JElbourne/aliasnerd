@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resource :card
+  resource :config_nerd, only: [:edit, :update], path: "admin"
  
   get '/subscription/new', to: redirect('https://aliasnerd.herokuapp.com/subscription/new')
   get '/subscription/edit', to: redirect('https://aliasnerd.herokuapp.com/subscription/edit')

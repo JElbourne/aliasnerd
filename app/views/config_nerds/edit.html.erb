@@ -1,0 +1,23 @@
+<% content_for :page_title do %>
+  Admin Panel
+<% end %>
+
+<%= bootstrap_form_for(@config_nerd, url: config_nerd_path, method: :patch) do |f| %>
+  <% if @config_nerd.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project..errors.count, "error") %> prohibited this configuration from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.text_field :video_ad_id %>
+    <%= f.text_field :video_temp_id %>
+    <%= f.text_field :video_stream_id %>
+    <%= f.check_box :live %>
+    <%= f.submit "Save Configuration", class: "btn btn-primary" %>
+<% end %>

@@ -34,7 +34,8 @@
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               <% if current_user_admin? %>
                 <li role="separator" class="divider"></li>
-                <li><%= link_to 'New Project', new_project_path if user_signed_in? %></li>
+                <li><%= link_to 'Admin Panel', edit_config_nerd_path %></li>
+                <li><%= link_to 'New Project', new_project_path %></li>
                 <li><%= link_to 'New Video', new_video_path %></li>
               <% end %>
             </ul>
