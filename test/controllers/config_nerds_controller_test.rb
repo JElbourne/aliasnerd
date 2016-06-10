@@ -30,6 +30,15 @@ class ConfigNerdsControllerTest < ActionController::TestCase
     assert_redirected_to edit_config_nerd_path
   end
 
+  test "should NOT update config_nerd due to invalid parameter" do
+    sign_in users(:admin)
+    config_nerd_id = ConfigNerd.first.id
+    patch :update, id: config_nerd_id , config_nerd: { video_ad_id: "" }
+    @config_nerd = ConfigNerd.find_by_id(config_nerd_id)
+    assert_equal("ad_id", @config_nerd.video_ad_id)
+    assert_template :edit
+  end
+
   test "should Not update config_nerd if Not Admin" do
     sign_in users(:subscribed)
     config_nerd_id = ConfigNerd.first.id

@@ -5,10 +5,10 @@
 <%= bootstrap_form_for(@config_nerd, url: config_nerd_path, method: :patch) do |f| %>
   <% if @config_nerd.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@project..errors.count, "error") %> prohibited this configuration from being saved:</h2>
+      <h2><%= pluralize(@config_nerd.errors.count, "error") %> prohibited this configuration from being saved:</h2>
 
       <ul>
-      <% @project.errors.full_messages.each do |message| %>
+      <% @config_nerd.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
