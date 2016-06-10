@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
     @video_home_id = if @config_nerd.live
                        @config_nerd.live
                      else
-                       if @config_nerd.video_temp_id
+                       if @config_nerd.video_temp_id.present?
                          @config_nerd.video_temp_id
                        else
                          @config_nerd.video_ad_id
