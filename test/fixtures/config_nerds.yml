@@ -6,4 +6,5 @@
 #
 one: 
   video_ad_id: ad_id
+  video_temp_id: temp_id
   video_stream_id: stream_id

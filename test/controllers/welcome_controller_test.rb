@@ -32,7 +32,6 @@ class WelcomeControllerTest < ActionController::TestCase
 
     get :index
     assert_response :success
-    assert_not_nil assigns(:projects)
   end
 
   test "should get index, with video_stream_id" do

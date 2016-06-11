@@ -29,6 +29,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_config_nerd
-    @config_nerd = ConfigNerd.first_or_create
+    @config_nerd = ConfigNerd.first_or_create do |confignerd|
+      confignerd.video_ad_id = "replace_with_id"
+    end
   end
 end

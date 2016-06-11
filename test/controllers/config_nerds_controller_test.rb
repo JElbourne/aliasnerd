@@ -5,6 +5,16 @@ class ConfigNerdsControllerTest < ActionController::TestCase
     @request.env['HTTP_REFERER'] = 'http://test.host/'
   end
 
+  test "should create a config_nerd model if none exists, done in application_controller" do
+    ConfigNerd.first.destroy
+    @admin = users(:admin)
+    sign_in @admin
+
+    get :edit
+    assert_response :success
+    assert_not_nil assigns(:config_nerd)
+  end
+
   test "should get edit, with Admin user" do
     @admin = users(:admin)
     sign_in @admin
