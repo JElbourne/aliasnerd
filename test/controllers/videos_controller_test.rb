@@ -109,7 +109,7 @@ class VideosControllerTest < ActionController::TestCase
   test "should Not update video if not valid, renders :edit action" do
     sign_in users(:admin)
     ## Invalid Name will not allow update
-    patch :update, id: @video, video: {name: "?$@@$#"}
+    patch :update, id: @video, video: {name: "1"}
     assert_template :edit
   end
 

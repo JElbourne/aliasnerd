@@ -27,38 +27,4 @@ class ProjectTest < ActiveSupport::TestCase
     assert_not project.valid?
   end
 
-  test "Project's name must not contain invalid characters" do
-    @project = projects(:one)
-
-    project = @project.update(name: "Ms. Jan Levinson-Gould" )
-    assert project, 'The project should be valid with the name Ms. Jan Levinson-Gould'
-    
-    project = @project.update(name: "Dr. Martin Luther King, Jr." )
-    assert project, 'The project should be valid with the name Dr. Martin Luther King, Jr.'
-    
-    project = @project.update(name: "Brett d'Arras-d'Haudracey" )
-    assert project, "The project should be valid with the name Brett d'Arras-d'Haudracey"
-    
-    project = @project.update(name: "Brüno" )
-    assert project, "The project should be valid with the name Brüno"
-    
-    project = @project.update(name: "John Doe" )
-    assert project, "The project should be valid with the name John Doe"
-    
-    project = @project.update(name: "Mary-Jo Jane Sally Smith" )
-    assert project, "The project should be valid with the name Mary-Jo Jane Sally Smith"
-    
-    project = @project.update(name: "Fatty Mc.Error$" )
-    assert_not project, "The project should not be valid with the name Fatty Mc.Error$"
-  
-    project = @project.update(name: "FA!L" )
-    assert_not project, "The project should not be valid with the name FA!L"
-  
-    project = @project.update(name: "#arold Newm@n" )
-    assert_not project, "The project should not be valid with the name #arold Newm@n"
-  
-    project = @project.update(name: "N4m3 w1th Numb3r5" )
-    assert_not project, "The project should not be valid with the name N4m3 w1th Numb3r5"
-  
-  end
 end

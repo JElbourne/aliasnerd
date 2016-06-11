@@ -94,7 +94,7 @@ class ProjectsControllerTest < ActionController::TestCase
   test "shouldn't update project if not valid, renders :edit action" do
     sign_in users(:admin)
     ## Invalid Name will not allow update
-    patch :update, id: @project, project: {name: "?$@@$#"}
+    patch :update, id: @project, project: {name: "1"}
     assert_template :edit
   end
 
