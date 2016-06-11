@@ -2,7 +2,7 @@
   Ruby on Rails by Coding Actual Projects
 <% end %>
 
-<iframe width="853" height="480" src=<% if Rails.env.development? %>""<% else %> <%= "https://www.youtube.com/embed/#{@video_home_id}?rel=0&amp;autoplay=1;controls=0;showinfo=0"%><% end %> frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" src=<% if Rails.env.development? %>""<% else %> <%= "https://www.youtube.com/embed/#{@video_home_id}?rel=0&amp;autoplay=1;showinfo=0"%><% end %> frameborder="0" allowfullscreen></iframe>
 
 <%= render partial: "shared/subs_panel" %>
 
