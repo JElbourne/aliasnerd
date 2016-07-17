@@ -6,9 +6,9 @@ class VideosController < ApplicationController
 
   def index
     @videos = if params[:project]
-                Video.where(project_id: params[:project])
+                Video.where(project_id: params[:project]).order('created_at DESC')
               else
-                Video.all
+                Video.order('created_at DESC').all
               end
     @project = params.has_key?(:project) ? Project.find(params[:project]) : nil
   end
