@@ -18,9 +18,21 @@ class VideosControllerTest < ActionController::TestCase
     assert_not_nil assigns(:videos)
   end
 
-  test "should get show" do
+  test "should get show if subscribed" do
+    sign_in users(:subscribed)
     get :show, id: @video
     assert_response :success
+  end
+
+  test "should NOT get show if not subscribed, not logged in" do
+    get :show, id: @video
+    assert_redirected_to new_subscription_path
+  end
+
+  test "should NOT get show if not subscribed, is logged in." do
+    sign_in users(:unsubscribed)
+    get :show, id: @video
+    assert_redirected_to new_subscription_path
   end
 
   test "should get new if Admin" do

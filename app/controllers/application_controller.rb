@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     redirect_to :back, notice: "You can not view this page." unless current_user_admin?
   end
 
+  def subscription_required
+    redirect_to new_subscription_path, notice: "You must subscribe to view that page. Subscribe below." unless current_user_subscribed?
+  end
+
   def get_config_nerd
     @config_nerd = ConfigNerd.first_or_create do |confignerd|
       confignerd.video_ad_id = "replace_with_id"
